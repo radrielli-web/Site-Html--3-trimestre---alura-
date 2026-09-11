@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migração Campo-Cidade: São Jorge do Ivaí/PR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Relação Campo-Cidade em São Jorge do Ivaí/PR</h1>
+        <p>Análise da migração e desenvolvimento econômico do município</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#informacoes">Informações</a></li>
+            <li><a href="#impactos">Impactos</a></li>
+            <li><a href="#dados">Dados Estatísticos</a></li>
+            <li><a href="#solucoes">Soluções</a></li>
+            <li><a href="#quiz">Quiz Interactive</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="informacoes">
+            <h2>Saiba mais sobre a cidade de São Jorge do Ivaí!</h2>
+            <p>
+                São Jorge do Ivaí é um município brasileiro localizado no estado do Paraná, 
+                com uma população de aproximadamente 5.168 habitantes. A cidade, fundada em 1946,
+                teve seu desenvolvimento impulsionado pela fertilidade de suas terras, atraindo migrantes
+                que se estabeleceram na zona rural, com destaque para a produção de café, soja, milho e
+                cana-de-açúcar.
+            </p>
+            <img src="São Jorge do Ivaí.webp" alt="São Jorge do Ivaí">
+        </section>
+
+        <section id="impactos">
+            <h2>Impactos da Migração</h2>
+            <div class="impacto-card">
+                <h3>Na Cidade</h3>
+                <p>Crescimento desordenado, aumento da demanda por habitação e serviços públicos sobrecarregados.</p>
+            </div>
+            <div class="impacto-card">
+                <h3>No Campo</h3>
+                <p>Envelhecimento da população rural, dificuldade de mão-de-obra qualificada e abandono de pequenas propriedades.</p>
+            </div>
+        </section>
+
+        <section id="dados">
+            <h2>Dados Estatísticos</h2>
+            <p>Evolução da população rural e urbana em São Jorge do Ivaí:</p>
+           
+            <div class="grafico-container">
+                <div class="grafico">
+                    <div class="barra" style="height: 70%;" data-ano="2000" data-valor="70%">70%</div>
+                    <div class="barra" style="height: 65%;" data-ano="2010" data-valor="65%">65%</div>
+                    <div class="barra" style="height: 55%;" data-ano="2020" data-valor="55%">55%</div>
+                    <div class="barra" style="height: 50%;" data-ano="2022" data-valor="50%">50%</div>
+                </div>
+                <div class="legenda">
+                    <div class="legenda-item">
+                        <div class="legenda-cor" style="background: #3498db;"></div>
+                        <span>População Rural</span>
+                    </div>
+                </div>
+                <p class="fonte">Fonte: IBGE - Censos Demográficos</p>
+            </div>
+           
+            <h3 style="margin-top: 2rem;">Produção Agrícola (2023)</h3>
+            <ul>
+                <li><strong>Soja:</strong> 60% da produção agrícola</li>
+                <li><strong>Milho:</strong> 30% da produção</li>
+                <li><strong>Outros (feijão, trigo, gado):</strong> 10%</li>
+            </ul>
+        </section>
+
+        <section id="solucoes">
+            <h2>Possíveis Soluções</h2>
+            <ul>
+                <li>Incentivos à agricultura familiar e cooperativismo</li>
+                <li>Melhoria da infraestrutura rural (estradas, internet, energia)</li>
+                <li>Programas de fixação do jovem no campo (capacitação, crédito)</li>
+                <li>Desenvolvimento do agroturismo na região</li>
+            </ul>
+        </section>
+
+        <!-- Seção Interativa da História / Quiz -->
+        <section id="quiz" class="caixa-principal">
+            <h2>Reflexão Tecnológica</h2>
+            <div class="caixa-perguntas"></div>
+            <div class="caixa-alternativas"></div>
+            <div class="caixa-resultado">
+                <p class="texto-resultado"></p>
+                <button class="novamente-btn">Jogar novamente</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Análise Socioeconômica de São Jorge do Ivaí/PR | Dados atualizados em 2024</p>
+    </footer>
+
+    <!-- Linkagem para o arquivo JS único -->
+    <script src="arquivo.js" defer></script>
+</body>
+</html>
