@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+h1, h2, .caixa-perguntas, .caixa-resultado {
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+nav {
+    background-color: #2980b9;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    margin-bottom: 2.5rem;
+    padding: 1.8rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #2c3e50;
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.6rem;
+    font-size: 1.6rem;
+}
+
+.impacto-card {
+    background-color: #eaf2f8;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    border-left: 4px solid #3498db;
+    border-radius: 4px;
+}
+
+/* Caixa de Alternativas do Quiz */
+.caixa-alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.caixa-alternativas button, .novamente-btn {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.caixa-alternativas button:hover, .novamente-btn:hover {
+    background-color: #2980b9;
+}
+
+.caixa-resultado {
+    display: none;
+    margin-top: 15px;
+}
+
+.caixa-resultado.mostrar {
+    display: block;
+}
+
+/* Estilos do Gráfico */
+.grafico-container {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.grafico {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 300px;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-bottom: 2px solid #ccc;
+    position: relative;
+}
+
+.barra {
+    width: 80px;
+    background: linear-gradient(to top, #3498db, #2980b9);
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    transition: height 1s ease;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.barra::after {
+    content: attr(data-ano);
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    right: 0;
+    color: #333;
+}
+
+.legenda {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.legenda-item {
+    display: flex;
+    align-items: center;
+}
+
+.legenda-cor {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    border-radius: 3px;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background-color: #2c3e50;
+    color: white;
+    margin-top: 3rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 0.3rem 0;
+    }
+    
+    .grafico {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+    
+    .barra {
+        width: 100%;
+        height: 60px !important;
+        margin-bottom: 30px;
+        border-radius: 5px;
+    }
+    
+    .barra::after {
+        bottom: -20px;
+    }
+}
