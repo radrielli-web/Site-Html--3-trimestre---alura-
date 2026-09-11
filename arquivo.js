@@ -1,8 +1,12 @@
-const caixaPrincipal = document.querySelector(“.caixa-principal”);
-const caixaPerguntas = document.querySelector(“.caixa-perguntas”);
-const caixaAlternativas = document.querySelector(“.caixa-alternativas”);
-const caixaResultado = document.querySelector(“.caixa-resultado”);
-const textoResultado = document.querySelector(“.texto-resultado”);
+// Seleção dos elementos do DOM
+const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
+const botaoJogarNovamente = document.querySelector(".novamente-btn");
+
+// Dados das perguntas
 const perguntas = [
   {
     enunciado:
@@ -11,7 +15,7 @@ const perguntas = [
       {
         texto: "Isso é assustador!",
         afirmacao: [
-          "No início ficou com medo do que essa tecnologia pode fazer. ",
+          "No início ficou com medo do que essa tecnologia pode fazer.",
           "Achou assustador pensar na velocidade na qual a tecnologia está avançando.",
         ],
       },
@@ -19,109 +23,78 @@ const perguntas = [
         texto: "Isso é maravilhoso!",
         afirmacao: [
           "Quis saber como usar IA no seu dia a dia.",
-          "Foi atrás de vídeos, artigos e mais informaçõe sobre como utilizar essa tecnologia.",
+          "Foi atrás de vídeos, artigos e mais informações sobre como utilizar essa tecnologia.",
         ],
       },
     ],
   },
 ];
-function aleatorio(lista) {
 
-}
-function aleatorio(lista) {
-    const posicao = Math.random()* lista.length;
-}
-function aleatorio(lista) {
-const posicao = Math.floor(Math.random()* lista.length);
-}
-function aleatorio(lista) {
-const posicao = Math.floor(Math.random()* lista.length);
-return lista[posicao];
-}
-function respostaSelecionada(opcaoSelecionada) {
-    const afirmacoes = opcaoSelecionada.afirmacao;
-historiaFinal += afirmacoes + “ “;
-atual++;
-mostraPergunta();
-}
-function respostaSelecionada(opcaoSelecionada) {
-    const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
-historiaFinal += afirmacoes + “ “;
-atual++;
-mostraPergunta();
-}
-export const perguntas = [
-{
-export function aleatorio (lista){
-    const posicao = Math.floot(Math.random()* lista.length);
-    return lista[posicao];
-import {aleatorio} from ‘./aleatorio.js’;
-import {perguntas} from ‘./perguntas.js;
-<script src="script.js"></script>
-<script src=”js/script.js”></script>
-<script type=”module” src=”js/script.js”></script>
-<script type=”module” src=”js/aleatorio.js”></script>
-<script type=”module” src=”js/perguntas.js”></script>
-<script type=”module” src=”js/script.js”></script>
-<div class= “caixa-resultado”>
-    <p class=”texto-resultado”></p>
-    <button class=”novamente-btn”></button>
-</div>
-const botaoJogarNovamente = document.querySelector(“.novamente-btn”);
-function jogaNovamente(){
-    atual = 0;
-    historiaFinal = "";
-    mostraPergunta();
-function mostraResultado() {
-caixaPerguntas.textContent = "Em 2049...";
-textoResultado.textContent = historiaFinal;
-caixaAlternativas.textContent = "";
-botaoJogarNovamente.addEventListener("click", jogaNovamente());
+// Variáveis de controle do quiz
+let atual = 0;
+let historiaFinal = "";
 
+// Função para selecionar um elemento aleatório de um array
+function aleatorio(lista) {
+  const posicao = Math.floor(Math.random() * lista.length);
+  return lista[posicao];
 }
-<div class= “caixa-resultado”>
-    <p class=”texto-resultado”></p>
-    <button class=”novamente-btn”>Jogar novamente</button>
-</div>
+
+// Função para exibir a pergunta atual ou finalizar
+function mostraPergunta() {
+  if (atual >= perguntas.length) {
+    mostraResultado();
+    return;
+  }
+  const perguntaAtual = perguntas[atual];
+  caixaPerguntas.textContent = perguntaAtual.enunciado;
+  caixaAlternativas.textContent = "";
+
+  perguntaAtual.alternativas.forEach((opcao) => {
+    const botaoAlternativa = document.createElement("button");
+    botaoAlternativa.textContent = opcao.texto;
+    botaoAlternativa.addEventListener("click", () => respostaSelecionada(opcao));
+    caixaAlternativas.appendChild(botaoAlternativa);
+  });
+}
+
+// Função para processar a resposta escolhida
+function respostaSelecionada(opcaoSelecionada) {
+  const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
+  historiaFinal += afirmacoes + " ";
+  atual++;
+  mostraPergunta();
+}
+
+// Função para exibir o resultado final do quiz
 function mostraResultado() {
-caixaPerguntas.textContent = "Em 2049...";
-textoResultado.textContent = historiaFinal;
-caixaAlternativas.textContent = "";
-caixaResultado.classList.add("mostrar"); botaoJogarNovamente.addEventListener("click", jogaNovamente());
+  caixaPerguntas.textContent = "Em 2049...";
+  textoResultado.textContent = historiaFinal;
+  caixaAlternativas.textContent = "";
+  caixaResultado.classList.add("mostrar");
+  botaoJogarNovamente.addEventListener("click", jogaNovamente);
 }
+
+// Função para reiniciar o quiz
 function jogaNovamente() {
-atual = 0;
-historiaFinal = "";
-caixaResultado.classList.remove("mostrar");
-mostraPergunta();
+  atual = 0;
+  historiaFinal = "";
+  caixaResultado.classList.remove("mostrar");
+  mostraPergunta();
 }
-function mostraResultado() {
-caixaPerguntas.textContent = "Em 2049...";
-textoResultado.textContent = historiaFinal;
-caixaAlternativas.textContent = "";
-caixaResultado.classList.add("mostrar"); botaoJogarNovamente.addEventListener("click", jogaNovamente);
-}
-.caixa-resultado{
-    display: none;
-}
-.caixa-resultado.mostrar{
-    display: block;
-}
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-body {
-background-color: var(--cor-fundo);
-color: var(--cor-texto);
-font-family: 'Inter', sans-serif;
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 100vh;
-}
-h1, .caixa-perguntas, .caixa-resultado{
-    font-family: 'Chakra Petch', sans-serif;
-}
-.caixa-alternativas{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+
+// Executado assim que o documento HTML for carregado
+document.addEventListener("DOMContentLoaded", function () {
+  // Animação das barras do gráfico
+  const barras = document.querySelectorAll(".barra");
+  barras.forEach((barra) => {
+    const alturaFinal = barra.style.height;
+    barra.style.height = "0%";
+    setTimeout(() => {
+      barra.style.height = alturaFinal;
+    }, 100);
+  });
+
+  // Inicializa o quiz
+  mostraPergunta();
+});
